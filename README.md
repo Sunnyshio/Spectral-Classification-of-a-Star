@@ -1,4 +1,5 @@
 # Predicting the Spectral Class of a Star
+`Note: this is an ongoing project and will continue to be refined until done`
 
 This simple machine learning project aims to predict the spectral class of a star using multiple features such as the temperature, luminosity, radius, and absolute magnitude of the astrophysical object. The spectral class or stellar classification is a way to categorize stars based on their physical properties, mainly their _temperature_ and _color_. Stars are classified under the [Morgan-Keenan System](https://en.wikipedia.org/wiki/Stellar_classification), they are classified through letters _O, B, A, F, G, K,_ and _M_, where _O_ is the hottest and _M_ is the coolest. This simple study provides essential parameters for understanding stellar behavior which can be useful for further astrophysical analysis and scientific research. 
 
@@ -42,4 +43,19 @@ The dataset that was used in this project is the [Astronomical Data](https://www
 
 ### Modeling approach
 I focused on predicting the _spectral class_ (dependent variable) using four key features (predictors): _temperature, luminosity, radius, and absolute magnitude_. Originally, the dataset contained seven columns, but I chose these four predictors as they are the most relevant for the problem. I applied a multiple regression model to find relationships between these predictors and the spectral class. A regression object was created and the training sets were fitted into the object. The model was then used to predict y values using the `x_test` values and stored it in a `y_pred` variable. 
+
+### Model assessment
+`Mean Squared Error: 1.07`
+* **Interpretation**: The Mean Squared Error quantifies the average squared difference between the predicted values and the actual values. A lower MSE indicates a better fit of the model to the data. In your case, an MSE of 1.07 suggests that, on average, the squared deviations from the predicted values to the actual values are relatively small. This is a good sign, indicating that the model predictions are fairly close to the actual values.
+* **Implication**: While an MSE of 1.07 is a positive indication of model performance, the acceptability of this value also depends on the scale of the target variable. If the target variable has a wide range, this error might be more acceptable than if the target variable's range is narrow.
+  
+`Root Mean Squared Error: 1.34`
+* **Interpretation**: The RMSE is the square root of the MSE and provides an error metric in the same units as the target variable. This makes it easier to interpret. An RMSE of 1.34 means that, on average, the model's predictions are about 1.34 units away from the actual values.
+* **Implication**: Similar to MSE, a lower RMSE indicates better model performance. An RMSE of 1.34 can be considered acceptable or good depending on the context and specific application. If the target variable is measured in small units (like millimeters), this error could be significant; however, if the target variable is in larger units (like kilometers), this error might be minimal.
+  
+`R-squared: 0.68`
+* **Interpretation**: The R-squared value represents the proportion of variance in the dependent variable that can be explained by the independent variables in the model. An R² value of 0.68 means that 68% of the variability in the target variable can be explained by the model. This is a reasonably strong indication that the model captures a significant portion of the underlying relationship.
+* **Implication**: An R² value of 0.68 suggests that while the model explains a good amount of variance, there is still 32% of the variance that is not explained by the model. This indicates potential room for improvement, possibly through feature selection, transformation, or exploring different modeling techniques.
+
+
 
