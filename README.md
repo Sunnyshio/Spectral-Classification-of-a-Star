@@ -1,4 +1,4 @@
-# Predicting the Spectral Class of a Star
+![image](https://github.com/user-attachments/assets/b95ada61-2a57-4c1b-bedc-7db5d1cfc265)# Predicting the Spectral Class of a Star
 
 This simple machine learning project aims to predict the spectral class of a star using multiple features such as the temperature, luminosity, radius, and absolute magnitude of the astrophysical object. The spectral class or stellar classification is a way to categorize stars based on their physical properties, mainly their _temperature_ and _color_. Stars are classified under the [Morgan-Keenan System](https://en.wikipedia.org/wiki/Stellar_classification), they are classified through letters _O, B, A, F, G, K,_ and _M_, where _O_ is the hottest and _M_ is the coolest. This simple study provides essential parameters for understanding stellar behavior which can be useful for further astrophysical analysis and scientific research. 
 
@@ -24,4 +24,15 @@ The list below is a brief description of each of the libraries and tools I've us
 11. **sklearn.metrics (mean_absolute_error, root_mean_squared_error, r2_score)**: A module containing functions to evaluate the performance of machine learning models using metrics like Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and the R² score.
 
 ### Dataset
-The dataset that was used in this project is the [Astronomical Data](https://www.kaggle.com/datasets/datascientist97/astronomical-data) from _Raja Ahmed Ali Khan_. You can read the full dataset description on the link embedded which will redirect to Raja's data card. In summary, the dataset contains the astrophysical properties of each star. The dataset has a dimension of **7 columns** with **240 entries**. 
+The dataset that was used in this project is the [Astronomical Data](https://www.kaggle.com/datasets/datascientist97/astronomical-data) from _Raja Ahmed Ali Khan_. You can read the full dataset description on the link embedded which will redirect to Raja's data card. In summary, the dataset contains the astrophysical properties of each star. The dataset has a dimension of **7 columns** with **240 entries**. The table displayed below is a portion of the dataset.
+
+| Temperature | Luminosity | Radius | Absolute magnitude Mv |  Star type | Star color | Spectral Class |
+|:----------: |:----------:|:------:| :--------------------:|:---------: |:---------: | :------------: |
+|    3042     |   0.0005   | 0.1542 |         16.6          |      0     |     Red    |        M       |
+|    2600     |   0.0003   | 0.102  |         18.7          |      0     |     Red    |        M       |
+|    2800     |   0.0002   |        |        16.65          |      0     |     Red    |        M       |
+|    1939     |  0.000138  | 0.103  |        20.06          |      0     |     Red    |        M       |
+|    2840     |            | 0.11   |        16.98          |      0     |     Red    |        M       |
+
+
+
