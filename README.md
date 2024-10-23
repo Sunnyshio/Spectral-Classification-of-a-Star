@@ -1,1 +1,1 @@
-# Spectral-Classification-of-a-Star
+Predicting the Spectrral Class of a Star
