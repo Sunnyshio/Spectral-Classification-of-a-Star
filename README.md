@@ -38,6 +38,8 @@ The dataset that was used in this project is the [Astronomical Data](https://www
 * All variables were converted into proper data formats before assessing the number of null values per column. Columns Temperature, Luminosity, Radius, and Absolute magnitude were cleaned by filling the missing values with the mean value for each column.
 * Rows with missing values on the Spectral Class, on the other hand, were dropped/removed since there are only 2 missing values. Ordinal encoding was applied to the Spectral Class column by replacing the letter values with numbers from 0 to 6, then the data format for that column was converted to numeric.
 * The missing star color values were imputed using K-Nearest Neighbors. The star color imputation aimed to replace missing star color values by assessing all available features. It identifies the data points that are most similar to those with missing values based on the other features and assigns the star color of the closest match to fill in the missing star color values.
+* Before splitting the data into training 80% and testing 20% sets, the predictor variables were scaled to ensure that their values were on comparable scales, improving the performance and accuracy of the regression model.
 
-
+### Modeling approach
+I focused on predicting the _spectral class_ (dependent variable) using four key features (predictors): _temperature, luminosity, radius, and absolute magnitude_. Originally, the dataset contained seven columns, but I chose these four predictors as they are the most relevant for the problem. I applied a multiple regression model to find relationships between these predictors and the spectral class. A regression object was created and the training sets were fitted into the object. The model was then used to predict y values using the `x_test` values and stored it in a `y_pred` variable. 
 
