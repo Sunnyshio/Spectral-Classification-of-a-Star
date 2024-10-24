@@ -27,7 +27,7 @@ The list below is a brief description of each of the libraries and tools I've us
 ### Dataset
 The dataset that was used in this project is the [Astronomical Data](https://www.kaggle.com/datasets/datascientist97/astronomical-data) from _Raja Ahmed Ali Khan_. You can read the full dataset description on the link embedded which will redirect to Raja's data card. In summary, the dataset contains the astrophysical properties of each star. The dataset has a dimension of **7 columns** with **240 entries**. The table displayed below is a portion of the dataset.
 
-| Temperature | Luminosity | Radius | Absolute magnitude Mv |  Star type | Star color | Spectral Class |
+| Temperature (K) | Luminosity (L/Lo) | Radius (R/Ro) | Absolute magnitude (Mv) |  Star type | Star color | Spectral Class |
 |:----------: |:----------:|:------:| :--------------------:|:---------: |:---------: | :------------: |
 |    3042     |   0.0005   | 0.1542 |         16.6          |      0     |     Red    |        M       |
 |    2600     |   0.0003   | 0.102  |         18.7          |      0     |     Red    |        M       |
