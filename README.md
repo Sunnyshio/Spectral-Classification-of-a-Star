@@ -11,6 +11,7 @@ This simple machine learning project aims to predict the spectral class of a sta
 * Needed libraries
 * Dataset
 * Data preprocessing
+* Checking assumptions
 * Modeling approach
 * Results and Assessment
 
@@ -25,8 +26,8 @@ The list below is a brief description of each of the libraries and tools I've us
 7. **matplotlib.pyplot (plt)**: A sub-library of matplotlib that provides a MATLAB-like interface for making plots.
 8. **seaborn**: A data visualization library built on top of matplotlib, providing high-level functions to create attractive and informative statistical graphics.
 9. **%matplotlib inline**: A magic function specific to Jupyter notebooks that ensures that plots are displayed inline, within the notebook.
-10. **sklearn.linear_model (linear_model)**: Provides various linear models for regression and classification tasks, such as `LinearRegression` or `LogisticRegression`.
-11. **sklearn.metrics (mean_absolute_error, root_mean_squared_error, r2_score)**: A module containing functions to evaluate the performance of machine learning models using metrics like Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and the R² score.
+10. **sklearn.linear_model (linear_model)**: 
+11. **sklearn.metrics (accuracy_score, confusion_matrix, classification_report)**: A module containing functions to evaluate the performance of machine learning models using metrics like Accuracy score, Confusion Matrix, Classification report.
 
 ### Dataset
 The dataset that was used in this project is the [Astronomical Data](https://www.kaggle.com/datasets/datascientist97/astronomical-data) from _Raja Ahmed Ali Khan_. You can read the full dataset description on the link embedded which will redirect to Raja's data card. In summary, the dataset contains the astrophysical properties of each star. The dataset has a dimension of **7 columns** with **240 entries**. The table displayed below is a portion of the dataset.
@@ -45,21 +46,28 @@ The dataset that was used in this project is the [Astronomical Data](https://www
 * The missing star color values were imputed using K-Nearest Neighbors. The star color imputation aimed to replace missing star color values by assessing all available features. It identifies the data points that are most similar to those with missing values based on the other features and assigns the star color of the closest match to fill in the missing star color values.
 * Before splitting the data into training 80% and testing 20% sets, the predictor variables were scaled to ensure that their values were on comparable scales, improving the performance and accuracy of the regression model.
 
+### Checking assumptions
+1. _Class imbalance:_
+The dataset exhibited a severe class imbalance, with the majority of stars belonging to spectral class 0. To address this imbalance, weighted KNN was used, which assigns more weight to closer neighbors during classification, helping the model perform better for underrepresented classes without modifying the dataset itself.
+2. _Outlier handling:_
+Several features, such as luminosity, radius, and temperature, exhibited significant outliers that could distort the KNN distance calculations.
+Log transformation was applied to compress the range of these features and reduce the influence of extreme values, improving model robustness.
+
 ### Modeling approach
-I focused on predicting the _spectral class_ (dependent variable) using four key features (predictors): _temperature, luminosity, radius, and absolute magnitude_. Originally, the dataset contained seven columns, but I chose these four predictors as they are the most relevant for the problem. I applied a multiple regression model to find relationships between these predictors and the spectral class. A regression object was created and the training sets were fitted into the object. The model was then used to predict y values using the `x_test` values and stored it in a `y_pred` variable. 
+I focused on predicting the _spectral class_ (dependent variable) using four key features (predictors): _temperature, luminosity, radius, and absolute magnitude_. Originally, the dataset contained seven columns, but I chose these four predictors as they are the most relevant for the problem. I applied K Nearest Neighbors model to the dataset. A KNN classifier was initialized as a model with weighted distances and the training sets were fitted into the model. The model was then used to predict y values using the `x_test` values and stored it in a `y_pred` variable. 
 
 ### Model assessment
-`Mean Squared Error: 1.07`
-* **Interpretation**: The Mean Squared Error quantifies the average squared difference between the predicted values and the actual values. A lower MSE indicates a better fit of the model to the data. In your case, an MSE of 1.07 suggests that, on average, the squared deviations from the predicted values to the actual values are relatively small. This is a good sign, indicating that the model predictions are fairly close to the actual values.
-* **Implication**: While an MSE of 1.07 is a positive indication of model performance, the acceptability of this value also depends on the scale of the target variable. If the target variable has a wide range, this error might be more acceptable than if the target variable's range is narrow.
-  
-`Root Mean Squared Error: 1.34`
-* **Interpretation**: The RMSE is the square root of the MSE and provides an error metric in the same units as the target variable. This makes it easier to interpret. An RMSE of 1.34 means that, on average, the model's predictions are about 1.34 units away from the actual values.
-* **Implication**: Similar to MSE, a lower RMSE indicates better model performance. An RMSE of 1.34 can be considered acceptable or good depending on the context and specific application. If the target variable is measured in small units (like millimeters), this error could be significant; however, if the target variable is in larger units (like kilometers), this error might be minimal.
-  
-`R-squared: 0.68`
-* **Interpretation**: The R-squared value represents the proportion of variance in the dependent variable that can be explained by the independent variables in the model. An R² value of 0.68 means that 68% of the variability in the target variable can be explained by the model. This is a reasonably strong indication that the model captures a significant portion of the underlying relationship.
-* **Implication**: An R² value of 0.68 suggests that while the model explains a good amount of variance, there is still 32% of the variance that is not explained by the model. This indicates potential room for improvement, possibly through feature selection, transformation, or exploring different modeling techniques.
+_Before Tuning_
+
+`Overall accuracy:` 81%
+
+`Class-wise Performance:` 
+
+* The model performed well for the majority class (spectral class 0), achieving near-perfect precision and recall.
+* However, the model struggled with minority classes (especially class 1 and class 4), as the dataset contained very few instances of these classes, leading to lower recall and F1-scores for these categories. Precision for Class 0: 0.90, Precision for Class 5: 0.73, Precision for Class 1: 0.00 (insufficient data to make reliable predictions).
+
+_After Tuning_
+
 
 
 
