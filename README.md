@@ -48,7 +48,7 @@ The dataset that was used in this project is the [Astronomical Data](https://www
 
 ### Checking assumptions
 1. _Class imbalance:_
-The dataset exhibited a severe class imbalance, with the majority of stars belonging to spectral class 0. To address this imbalance, weighted KNN was used, which assigns more weight to closer neighbors during classification, helping the model perform better for underrepresented classes without modifying the dataset itself.
+The dataset exhibited a severe class imbalance, with the majority of stars belonging to spectral class 0. To address this imbalance, oversampling using imblearn's RandomOverSampler was used. Oversampling is creating synthetic samples by randomly replicating samples in minority classes until they reach a balanced distribution.
 2. _Outlier handling:_
 Several features, such as luminosity, radius, and temperature, exhibited significant outliers that could distort the KNN distance calculations.
 Log transformation was applied to compress the range of these features and reduce the influence of extreme values, improving model robustness.
