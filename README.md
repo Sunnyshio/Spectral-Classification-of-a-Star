@@ -26,8 +26,8 @@ The list below is a brief description of each of the libraries and tools I've us
 7. **matplotlib.pyplot (plt)**: A sub-library of matplotlib that provides a MATLAB-like interface for making plots.
 8. **seaborn**: A data visualization library built on top of matplotlib, providing high-level functions to create attractive and informative statistical graphics.
 9. **%matplotlib inline**: A magic function specific to Jupyter notebooks that ensures that plots are displayed inline, within the notebook.
-10. **sklearn.linear_model (linear_model)**: 
-11. **sklearn.metrics (accuracy_score, confusion_matrix, classification_report)**: A module containing functions to evaluate the performance of machine learning models using metrics like Accuracy score, Confusion Matrix, Classification report.
+10. **sklearn.metrics (accuracy_score, confusion_matrix, classification_report)**: A module containing functions to evaluate the performance of machine learning models using metrics like Accuracy score, Confusion Matrix, Classification report.
+11. **imblearn.oversampling (RandomOverSampler)**: Used for oversampling minority classes in the dataset to counter imbalanced class that affects the performance of the model to predict between classes.
 
 ### Dataset
 The dataset that was used in this project is the [Astronomical Data](https://www.kaggle.com/datasets/datascientist97/astronomical-data) from _Raja Ahmed Ali Khan_. You can read the full dataset description on the link embedded which will redirect to Raja's data card. In summary, the dataset contains the astrophysical properties of each star. The dataset has a dimension of **7 columns** with **240 entries**. The table displayed below is a portion of the dataset.
@@ -54,7 +54,7 @@ Several features, such as luminosity, radius, and temperature, exhibited signifi
 Log transformation was applied to compress the range of these features and reduce the influence of extreme values, improving model robustness.
 
 ### Modeling approach
-I focused on predicting the _spectral class_ (dependent variable) using four key features (predictors): _temperature, luminosity, radius, and absolute magnitude_. Originally, the dataset contained seven columns, but I chose these four predictors as they are the most relevant for the problem. I applied K Nearest Neighbors model to the dataset. A KNN classifier was initialized as a model with weighted distances and the training sets were fitted into the model. The model was then used to predict y values using the `x_test` values and stored it in a `y_pred` variable. 
+I focused on predicting the _spectral class_ (dependent variable) using four key features (predictors): _temperature, luminosity, radius, and absolute magnitude_. Originally, the dataset contained seven columns, but I chose these four predictors as they are the most relevant for the problem. I applied K-Nearest Neighbors model to the dataset. A KNN classifier was initialized as a model with weighted distances and the training sets were fitted into the model. The model was then used to predict y values using the `x_test` values and stored it in a `y_pred` variable. 
 
 ### Model assessment
 _Before Data Augmentation_
