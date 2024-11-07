@@ -57,7 +57,7 @@ Log transformation was applied to compress the range of these features and reduc
 I focused on predicting the _spectral class_ (dependent variable) using four key features (predictors): _temperature, luminosity, radius, and absolute magnitude_. Originally, the dataset contained seven columns, but I chose these four predictors as they are the most relevant for the problem. I applied K-Nearest Neighbors model to the dataset. A KNN classifier was initialized as a model with weighted distances and the training sets were fitted into the model. The model was then used to predict y values using the `x_test` values and stored it in a `y_pred` variable. 
 
 ### Model assessment
-_Before Data Augmentation_
+Before Data Augmentation:
 
 `Overall accuracy:` 81%
 
@@ -65,15 +65,15 @@ _Before Data Augmentation_
 
 * The model performed well for the majority class (spectral class 0), achieving near-perfect precision and recall.
 * However, the model struggled with minority classes (especially class 1 and class 4), as the dataset contained very few instances of these classes, leading to lower recall and F1-scores for these categories. 
-* The imbalanced dataset results in a model that is heavily biased toward the majority class, with poor performance on minority classes.
+* The imbalanced dataset results in a model that is heavily biased toward the majority class, with poor performance in minority classes.
 
-_After Data Augmentation_
+After Data Augmentation:
 
 `Overall accuracy:` 95%
 
 `Class-wise Performance:` 
 
-* The model performed well on all classes, achieving near-perfect precision and recall.
+* The model performed well in all classes, achieving near-perfect precision and recall.
 * The oversampling mitigated the class imbalance by adding synthetic samples for minority classes, leading to more balanced predictions and fewer misclassifications.
 
 
